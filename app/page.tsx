@@ -1,65 +1,99 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, BookOpen, GraduationCap, LayoutDashboard, Smartphone, CheckCircle2 } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-950 dark:to-slate-900 flex flex-col">
+      {/* Navbar */}
+      <nav className="w-full p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+          MedTechMakeIt
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="flex gap-4">
+          <Link href="/inquiry" className="text-sm font-medium text-slate-600 hover:text-primary transition-colors">
+            Inquiry
+          </Link>
+          <Link href="/register" className="text-sm font-medium text-slate-600 hover:text-primary transition-colors">
+            Enroll Now
+          </Link>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <main className="flex-1 flex flex-col items-center justify-center text-center px-4 py-20">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/50 border border-slate-200 backdrop-blur-sm text-sm font-medium text-slate-600 animate-fade-in-up">
+            <span className="w-2 h-2 rounded-full bg-green-500"></span>
+            New Batches Starting Soon
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Fast-Track Your <br />
+            <span className="text-primary">Medical Career</span>
+          </h1>
+
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Industry-ready certification courses in Medical Coding, Lab Technology, and Healthcare Management.
+            <strong> 4 to 12 months</strong> intensive training.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <Link href="/register" className="btn-primary flex items-center gap-2 group">
+              Join Next Batch
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link href="/inquiry" className="btn-secondary">
+              Download Brochure
+            </Link>
+          </div>
+
+          {/* Course Pills */}
+          <div className="flex flex-wrap justify-center gap-3 pt-8 opacity-80">
+            {["Medical Coding (4 Months)", "Lab Technician (6 Months)", "X-Ray Tech (6 Months)", "OT Management (1 Year)"].map((course, i) => (
+              <div key={i} className="px-4 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center gap-2">
+                <CheckCircle2 className="w-3 h-3 text-primary" /> {course}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* App Showcase Cards */}
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto w-full px-4">
+          {/* Student App Card */}
+          <Link href="/studentapp" className="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xl hover:shadow-primary/20 transition-all duration-300 hover:-translate-y-1">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="p-8 flex flex-col items-start h-full relative z-10">
+              <div className="p-3 rounded-2xl bg-primary/10 text-primary mb-6">
+                <Smartphone className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Student Portal</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8">Track your attendance, exam results, and access study materials for your certification course.</p>
+              <div className="mt-auto flex items-center text-primary font-semibold">
+                Login to Portal <ArrowRight className="w-4 h-4 ml-2" />
+              </div>
+            </div>
+          </Link>
+
+          {/* Admin App Card */}
+          <Link href="/adminapp" className="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xl hover:shadow-secondary/20 transition-all duration-300 hover:-translate-y-1">
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="p-8 flex flex-col items-start h-full relative z-10">
+              <div className="p-3 rounded-2xl bg-secondary/10 text-secondary mb-6">
+                <LayoutDashboard className="w-8 h-8" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Institute Admin</h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-8">Manage batches, student fees, and course schedules efficiently.</p>
+              <div className="mt-auto flex items-center text-secondary font-semibold">
+                Access Dashboard <ArrowRight className="w-4 h-4 ml-2" />
+              </div>
+            </div>
+          </Link>
         </div>
       </main>
+
+      <footer className="py-8 text-center text-slate-500 text-sm">
+        © 2025 MedTechMakeIt. Professional Healthcare Training Institute.
+      </footer>
     </div>
   );
 }
